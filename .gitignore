@@ -162,4 +162,6 @@ cython_debug/
 #.idea/
 
 # data files (too large for version control)
+/data_old
+/Data
 /data
