@@ -166,3 +166,4 @@ cython_debug/
 /Data
 /data
 /src/detr-resnet-50-finetuned
+/src/detr-resnet-50-finetuned-v1
