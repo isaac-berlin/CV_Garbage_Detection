@@ -162,9 +162,5 @@ cython_debug/
 #.idea/
 
 # data files (too large for version control)
-/data_old
 /Data
-/data
-/src/detr-resnet-50-finetuned
-/src/detr-resnet-50-finetuned-v*
-/src/detr-resnet-101-finetuned-v*
+/Models
