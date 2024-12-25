@@ -4,95 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Computer Vision for Trash Detection</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1em 0;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        header h2 {
-            margin: 0;
-            font-size: 1.2em;
-            font-weight: 300;
-        }
-        main {
-            padding: 1em 2em;
-        }
-        section {
-            margin-bottom: 2em;
-        }
-        h2 {
-            border-bottom: 2px solid #333;
-            padding-bottom: 0.2em;
-        }
-        .authors {
-            list-style: none;
-            padding: 0;
-        }
-        .authors li {
-            margin: 0.5em 0;
-        }
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1em 0;
-            margin-top: 2em;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Analysis of Machine Learning Models for Trash Detection</h1>
-        <h2>Jerome Newhouse, Ryan Roche, Isaac Berlin, Robert Wang</h2>
-    </header>
+        <div class="title">
+            <h1>Analysis of Machine Learning Methods for Trash Detection</h1>
+            <h2>Jerome Newhouse, Ryan Roche, Isaac Berlin, Robert Wang</h2>
+        </div>
+    </header>    
     <main>
         <section>
-            <h2>Abstract</h2>
-            <p>This project explores the application of computer vision and machine learning techniques for automated waste detection and segregation. We train and evaluate four models (GroundingDINO, DETR, YOLOv8, and ResNet) using the TACO dataset to determine the most effective solution for automated trash classification.</p>
+            <h2>Introduction</h2>
+            <p>This project investigates the application of computer vision and machine learning methodologies 
+            for automated waste detection and segregation. Four models—GroundingDINO, DETR, YOLOv8, and ResNet—are 
+            trained and evaluated using the TACO dataset to identify the most effective approach for robust trash
+            classification in real-world environments. The paper that accompanies this project is
+            available <a href="/docs/computer_vision_project.pdf">here</a>.</p>
         </section>
         <section>
-            <h2>Introduction</h2>
-            <p>Improper waste sorting is a significant environmental issue. This project addresses this by developing models for automated trash detection to enhance waste sorting efficiency.</p>
+            <h2>Dataset</h2>
+            <p>The <a href="http://tacodataset.org/">TACO</a> dataset (Trash Annotations in Context) is a 
+            comprehensive collection of images depicting trash and recycling objects in real-world settings. 
+            This dataset, used for training and evaluating our models, includes images containing between 0 and 40 
+            objects spanning 19 classes, such as bottles, cans, and plastic bags. Additionally, it features a "catch-all" 
+            class, labeled as unlabeled litter, for unidentified items. The dataset comprises 4,000 images, which were augmented 
+            to expand the total to 6,000 images, all resized to 416x416 pixels. The annotations were created
+            using Roboflow and are available <a href="https://universe.roboflow.com/divya-lzcld/taco-mqclx">here</a>.</p>
         </section>
         <section>
             <h2>Models Used</h2>
             <ul>
-                <li><strong>GroundingDINO:</strong> Transformer-based visual-language model.</li>
-                <li><strong>DETR:</strong> Detection Transformer with CNN-Transformer architecture.</li>
-                <li><strong>YOLOv8:</strong> Efficient real-time object detection model.</li>
-                <li><strong>ResNet:</strong> Residual CNN for deep network stabilization.</li>
+                <li><strong>GroundingDINO</strong> is a state-of-the-art transformer-based object detection model 
+                designed for open-set detection tasks, integrating grounding capabilities to align visual features with textual
+                prompts for precise and flexible object identification.</li>
+                <br>
+                <li><strong>DETR</strong> (DEtection TRansformer) is a transformer-based object detection model that eliminates
+                the need for traditional hand-crafted components like anchor generation and NMS, using an end-to-end approach with a 
+                bipartite matching loss to predict objects directly from input images.</li>
+                <br>
+                <li><strong>YOLO</strong> (You Only Look Once) is a real-time object detection framework that predicts 
+                bounding boxes and class probabilities directly from full images in a single forward pass, offering high-speed 
+                and accurate detection performance.</li>
+                <br>
+                <li><strong>ResNet</strong> (Residual Network) is a deep convolutional neural network architecture designed
+                to address the vanishing gradient problem by introducing residual connections, enabling the training of very deep 
+                networks while maintaining high performance in image classification and feature extraction tasks.</li>
             </ul>
         </section>
         <section>
             <h2>Key Findings</h2>
-            <p>The YOLOv8 model achieved the highest precision and recall for real-time applications, outperforming others in detecting larger objects. Smaller objects, such as bottle caps, remain challenging due to resolution limitations in the dataset.</p>
-        </section>
-        <section>
-            <h2>Contributors</h2>
-            <ul class="authors">
-                <li>Jerome Newhouse: YOLOv8 model analysis and dataset preparation.</li>
-                <li>Ryan Roche: GroundingDINO evaluation and iOS app development.</li>
-                <li>Isaac Berlin: DETR analysis and debugging.</li>
-                <li>Robert Wang: ResNet model evaluation and data preprocessing.</li>
-            </ul>
+            <p>The YOLOv8 model achieved the highest precision and recall for real-time applications, outperforming other model types. 
+            Smaller objects, such as bottle caps, remain challenging due to resolution limitations in the dataset and difficulty
+            of the task. Our final results are available below.</p>
+            <br>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Evaluation Metric</th>
+                        <th>YOLO</th>
+                        <th>DETR</th>
+                        <th>ResNet</th>
+                        <th>GroundingDino</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Precision</td>
+                        <td><strong>0.777</strong></td>
+                        <td>0.612</td>
+                        <td>0.503</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Recall</td>
+                        <td><strong>0.398</strong></td>
+                        <td>0.285</td>
+                        <td>0.379</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>mAP50</td>
+                        <td><strong>0.491</strong></td>
+                        <td>0.337</td>
+                        <td>0.352</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>mAP50-95</td>
+                        <td><strong>0.403</strong></td>
+                        <td>0.260</td>
+                        <td>0.297</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>FPS</td>
+                        <td>200</td>
+                        <td>13</td>
+                        <td>10</td>
+                        <td>2</td>
+                    </tr>
+                </tbody>
+                <caption>Table 1: Evaluation metric scores for each model.</caption>
+            </table>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Trash Detection Research Team</p>
     </footer>
 </body>
 </html>
