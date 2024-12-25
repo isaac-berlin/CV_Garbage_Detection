@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Vision for Trash Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header h2 {
+            margin: 0;
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+        main {
+            padding: 1em 2em;
+        }
+        section {
+            margin-bottom: 2em;
+        }
+        h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.2em;
+        }
+        .authors {
+            list-style: none;
+            padding: 0;
+        }
+        .authors li {
+            margin: 0.5em 0;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            margin-top: 2em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Analysis of Machine Learning Models for Trash Detection</h1>
+        <h2>Jerome Newhouse, Ryan Roche, Isaac Berlin, Robert Wang</h2>
+    </header>
+    <main>
+        <section>
+            <h2>Abstract</h2>
+            <p>This project explores the application of computer vision and machine learning techniques for automated waste detection and segregation. We train and evaluate four models (GroundingDINO, DETR, YOLOv8, and ResNet) using the TACO dataset to determine the most effective solution for automated trash classification.</p>
+        </section>
+        <section>
+            <h2>Introduction</h2>
+            <p>Improper waste sorting is a significant environmental issue. This project addresses this by developing models for automated trash detection to enhance waste sorting efficiency.</p>
+        </section>
+        <section>
+            <h2>Models Used</h2>
+            <ul>
+                <li><strong>GroundingDINO:</strong> Transformer-based visual-language model.</li>
+                <li><strong>DETR:</strong> Detection Transformer with CNN-Transformer architecture.</li>
+                <li><strong>YOLOv8:</strong> Efficient real-time object detection model.</li>
+                <li><strong>ResNet:</strong> Residual CNN for deep network stabilization.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Key Findings</h2>
+            <p>The YOLOv8 model achieved the highest precision and recall for real-time applications, outperforming others in detecting larger objects. Smaller objects, such as bottle caps, remain challenging due to resolution limitations in the dataset.</p>
+        </section>
+        <section>
+            <h2>Contributors</h2>
+            <ul class="authors">
+                <li>Jerome Newhouse: YOLOv8 model analysis and dataset preparation.</li>
+                <li>Ryan Roche: GroundingDINO evaluation and iOS app development.</li>
+                <li>Isaac Berlin: DETR analysis and debugging.</li>
+                <li>Robert Wang: ResNet model evaluation and data preprocessing.</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Trash Detection Research Team</p>
+    </footer>
+</body>
+</html>
